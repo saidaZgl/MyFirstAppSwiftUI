@@ -8,9 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    var listOfSandwiches = ["Bagel_saumon", "Bagel_pizza", "Bagel_bleu"]
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        List {
+            Text("Sandwiches")
+            ForEach(listOfSandwiches, id: \.self) { sandwichName in
+                HStack {
+                    Image(sandwichName)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 80, height: 80)
+                        .clipped()
+                    Text(sandwichName)
+                }
+                
+            }
+        }
     }
 }
 
